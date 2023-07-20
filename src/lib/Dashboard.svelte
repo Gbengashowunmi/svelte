@@ -8,7 +8,7 @@
 <div class="dashboard">
     <h3>Welcome {username}. Your Dashboard is here</h3>
     <h5>Here is your favourite qoute</h5>
-    <p>{quote}</p>
+    <p>Qoute:{quote}</p>
     <button  on:click={logout}>Logout</button>
 </div>
 
