@@ -1,9 +1,7 @@
 <script>
     // import user from "../user"
     import Login from "../lib/Login.svelte"
-    import isLoggedIn from "../lib/Login.svelte"
 
-    console.log(isLoggedIn);
 </script>
 
 <body>

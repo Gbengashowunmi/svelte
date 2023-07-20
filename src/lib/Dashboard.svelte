@@ -1,12 +1,7 @@
 
 <script>
-    import isLoggedIn from "./Login.svelte"
-
     export let username
-
-    const logout = ()=>{
-        console.log("logged out");
-    }
+    export let logout
 </script>
 
 <div class="dashboard">
