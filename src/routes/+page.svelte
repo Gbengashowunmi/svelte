@@ -5,7 +5,7 @@
 </script>
 
 <body>
-    <h1>Welcome to Svelte task</h1>
+    <h1>Welcome to Svelte Qoute</h1>
     <Login/>
     
 </body>

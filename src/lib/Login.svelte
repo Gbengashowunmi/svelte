@@ -76,7 +76,7 @@ export let isLoggedIn = false
 </div>
 
 {:else}  
-<Dashboard username={matchingUser.username} logout={logout}/>
+<Dashboard username={matchingUser.username} logout={logout} quote={matchingUser.qoute}/>
 {/if}
 
 <style>
