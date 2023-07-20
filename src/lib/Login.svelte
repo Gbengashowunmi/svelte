@@ -10,8 +10,11 @@ export let isLoggedIn = false
 
 
     const login = ()=>{
-             matchingUser=$userStore.find(user => user.username === typedUsername)
-             if(typedUsername ==="" && password ===  ""){
+
+        const trimmedUsername = typedUsername.trim()
+        const trimmedPassword = password.trim()
+             matchingUser=$userStore.find(user => user.username === trimmedUsername)
+             if(typedUsername ==="" && trimmedPassword ===  ""){
                 error = "Enter details"
                 setTimeout(() => {
                     error =""
@@ -25,13 +28,13 @@ export let isLoggedIn = false
                 }, 3000);
              }
 
-             else if (matchingUser.password !== password || password ===""){
+             else if (matchingUser.password !== trimmedPassword || trimmedPassword ===""){
                 error ="Invalid password"
                    setTimeout(() => {
                     error =""
                 }, 3000);
              }
-             else if(matchingUser && matchingUser.password === password){
+             else if(matchingUser && matchingUser.password === trimmedPassword){
                  isLoggedIn = true
                  password=""
                  typedUsername=""
@@ -48,10 +51,8 @@ export let isLoggedIn = false
 <h2>Kindly Log in to open your dashboard</h2>
 
 <form on:submit|preventDefault={login} class="form">
-    <!-- {#if !isLoggedIn} -->
 <p class="error">{error}</p>
 
-<!-- {/if} -->
 <div class="input">
     <label for="username">Username</label>
     <input type="text" id="username" bind:value={typedUsername}>
@@ -62,6 +63,17 @@ export let isLoggedIn = false
 </div>
 <button type="submit">Login</button>
 </form>
+
+<div class="login-details">
+    <h2>Login credentials</h2>
+    <h4>Username - password</h4>
+    <ul>
+    {#each $userStore as user}
+<h5>{user.username} - {user.password}</h5>
+    {/each}
+    </ul>
+
+</div>
 
 {:else}  
 <Dashboard username={matchingUser.username} logout={logout}/>
